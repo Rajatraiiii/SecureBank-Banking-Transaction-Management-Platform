@@ -64,7 +64,24 @@ async function sendTransactionEmail(senderEmail, senderName, amount, receiverEma
   );
 }
 
+async function sendTransactionFailureEmail(senderEmail, senderName, amount, receiverEmail, receiverName) {
+    await sendEmail(
+        senderEmail,
+        'Transaction failed',
+        `Hi ${senderName},\n\nYour transaction of ${amount} to ${receiverName} has failed.`,
+        `<p>Hi ${senderName},</p><p>Your transaction of ${amount} to ${receiverName} has failed.</p>`
+    );
+
+    await sendEmail(
+        receiverEmail,
+        'Payment not received',
+        `Hi ${receiverName},\n\nYou did not receive a transaction of ${amount} from ${senderName}.`,
+        `<p>Hi ${receiverName},</p><p>You did not receive a transaction of ${amount} from ${senderName}.</p>`
+    );
+}
+
 module.exports ={
     sendRegistrationEmail,
-    sendTransactionEmail
+    sendTransactionEmail,
+    sendTransactionFailureEmail
 }
