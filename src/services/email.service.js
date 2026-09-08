@@ -48,6 +48,23 @@ async function sendRegistrationEmail(userEmail, name) {
   await sendEmail(userEmail, subject, text, html);
 }
 
+async function sendTransactionEmail(senderEmail, senderName, amount, receiverEmail, receiverName) {
+  await sendEmail(
+    senderEmail,
+    'Transaction completed',
+    `Hi ${senderName},\n\nYour transaction of ${amount} was sent to ${receiverName}.`,
+    `<p>Hi ${senderName},</p><p>Your transaction of ${amount} was sent to ${receiverName}.</p>`
+  );
+
+  await sendEmail(
+    receiverEmail,
+    'Payment received',
+    `Hi ${receiverName},\n\nYou received a transaction of ${amount} from ${senderName}.`,
+    `<p>Hi ${receiverName},</p><p>You received a transaction of ${amount} from ${senderName}.</p>`
+  );
+}
+
 module.exports ={
-    sendRegistrationEmail
+    sendRegistrationEmail,
+    sendTransactionEmail
 }
