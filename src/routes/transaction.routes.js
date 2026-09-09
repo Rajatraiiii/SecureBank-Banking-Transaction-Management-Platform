@@ -11,6 +11,10 @@ const transactionRoutes = Router();
  * Protected Route
  */
 
-transactionRoutes.post("/",authMiddleware.authMiddleware, transactionController.createTransaction)
+transactionRoutes.post("/", authMiddleware.authMiddleware, transactionController.createTransaction);
+
+transactionRoutes.post("/system/initial-funds", authMiddleware.authSystemMiddleware, transactionController.createInitialFundsTransaction);
+transactionRoutes.post("/system/intial-funds", authMiddleware.authSystemMiddleware, transactionController.createInitialFundsTransaction);
+
 module.exports = transactionRoutes;
 
