@@ -104,6 +104,27 @@ The application runs on port `3000` by default.
 └── README.md
 ```
 
+## Security Notes
+
+- Passwords are hashed before storage.
+- JWT tokens are issued for authenticated sessions.
+- Protected routes require valid authentication.
+- System-level financial operations require a dedicated system authorization check.
+
+## Example Workflow
+
+```bash
+# Register a user
+curl -X POST http://localhost:3000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Alice","email":"alice@example.com","password":"secret123"}'
+
+# Login
+curl -X POST http://localhost:3000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"alice@example.com","password":"secret123"}'
+```
+
 ## Environment Variables
 
 Create a `.env` file in the project root with values such as:
