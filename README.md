@@ -13,6 +13,43 @@ This project is designed to support a secure backend for a financial application
 - System-funded transactions
 - Email notifications for registration and transaction events
 
+## Installation
+
+1. Clone the repository.
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a `.env` file in the project root and add the required environment variables.
+4. Start the server:
+
+```bash
+npm run dev
+```
+
+The application runs on port `3000` by default.
+
+## API Endpoints
+
+### Authentication
+
+- `POST /api/auth/register` — Register a new user
+- `POST /api/auth/login` — Login and receive a JWT token
+- `POST /api/auth/logout` — Logout and clear the auth cookie
+
+### Accounts
+
+- `POST /api/accounts` — Create a new bank account
+- `GET /api/accounts` — Get accounts for the authenticated user
+- `GET /api/accounts/balance/:accountId` — Get balance for a specific account
+
+### Transactions
+
+- `POST /api/transactions` — Create a user transaction
+- `POST /api/transactions/system/initial-funds` — Create initial system-funded balance entries
+
 ## Features
 
 - Secure user registration with password hashing
