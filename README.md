@@ -1,0 +1,83 @@
+# SecureBank
+
+SecureBank is a banking transaction management platform built with Node.js, Express, and MongoDB. It provides user authentication, account management, transaction processing, and protected banking flows for both personal and system-funded transfers.
+
+## Overview
+
+This project is designed to support a secure backend for a financial application. It includes:
+
+- User registration and login
+- JWT-based authentication
+- Protected account routes
+- Transaction creation and balance tracking
+- System-funded transactions
+- Email notifications for registration and transaction events
+
+## Features
+
+- Secure user registration with password hashing
+- Login flow with JWT issuance
+- Logout support that clears the auth cookie
+- Account creation and account listing
+- Balance retrieval using transaction ledger data
+- Debits and credits tracked through an immutable ledger model
+- Transaction processing with validation and balance checks
+- Role-aware system funding endpoints
+
+## Tech Stack
+
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT for authentication
+- Bcrypt for password hashing
+- Nodemailer for email notifications
+- Dotenv for environment configuration
+
+## Project Structure
+
+```text
+.
+├── src/
+│   ├── app.js
+│   ├── config/
+│   │   └── db.js
+│   ├── controllers/
+│   │   ├── auth.controller.js
+│   │   ├── account.controller.js
+│   │   └── transaction.controller.js
+│   ├── middleware/
+│   │   └── auth.middleware.js
+│   ├── models/
+│   │   ├── user.model.js
+│   │   ├── account.model.js
+│   │   ├── ledger.model.js
+│   │   └── transaction.model.js
+│   ├── routes/
+│   │   ├── auth.routes.js
+│   │   ├── account.routes.js
+│   │   └── transaction.routes.js
+│   ├── services/
+│   │   └── email.service.js
+│   └── utils/
+├── .env.example
+├── .gitignore
+├── package.json
+├── server.js
+└── README.md
+```
+
+## Environment Variables
+
+Create a `.env` file in the project root with values such as:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+EMAIL_USER=your_email_address
+EMAIL_PASS=your_email_password
+```
+
+## License
+
+This project is for educational and demonstration purposes.
