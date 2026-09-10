@@ -9,7 +9,24 @@ const router = express.Router();
  * - Protected Route
  */
 
-router.post("/",authMiddleware.authMiddleware,accountController.createAccountController);
+router.post("/", authMiddleware.authMiddleware, accountController.createAccountController);
+
+/**
+ * GET /api/accounts/
+ *
+ */
+
+router.get("/", authMiddleware.authMiddleware, accountController.getUserAccountController);
+
+
+/**
+ * GET /api/accounts/balance
+ */
+
+
+router.get("/balance/:accountId", authMiddleware.authMiddleware, accountController.getAccountBalanceController);
+
+
 
 module.exports = router;
 
